@@ -7,7 +7,7 @@ use frontend\models\Test;
 use Yii;
 
 /**
- * Description of TestController
+ * Изменение для git
  *
  * @author Max
  */
