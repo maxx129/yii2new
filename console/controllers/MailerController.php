@@ -2,7 +2,11 @@
 
 namespace console\controllers;
 
-use Yii;
+use yii\helpers\Console;
+use console\models\News;
+use console\models\Subscriber;
+use console\models\Sender;
+
 
 /**
  * Description of MasilerController
@@ -13,14 +17,13 @@ class MailerController extends \yii\console\Controller {
     
     public function actionSend() {
         
-        $result = Yii::$app->mailer->compose()
-               ->setFrom('max.anga.inc@gmail.com')
-               ->setTo('maxx129@yandex.ru')
-               ->setSubject('Тема сообщения11111111111')
-               ->setTextBody('Текст сообщения')
-               ->setHtmlBody('<b>текст сообщения в формате HTML</b>')
-               ->send();
-            
-        var_dump($result);
+        $newsList = News::getList();
+        $subsribers = Subscriber::getList();
+        
+        $count = Sender::run($subsribers, $newsList);
+        
+        Console::output("\nEmails sent: {$count}");
+        
+
     }
 }
