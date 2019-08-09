@@ -32,8 +32,8 @@ phpunit.phar
 /phpunit.xml
 
 # vagrant runtime
-/.vagrant
-/vagrant
+#/.vagrant
+#/vagrant
 
 
 # ignore generated files
