@@ -9,7 +9,7 @@
 namespace frontend\controllers;
 
 /**
- * Description of ForTestGitController
+ * Ха-ха
  *
  * @author Max
  */
