@@ -4,7 +4,6 @@ namespace frontend\controllers;
 
 use yii\web\Controller;
 use frontend\models\Employee;
-
 use frontend\models\example\Animal;
 use frontend\models\example\Human;
 
@@ -33,6 +32,16 @@ class EmployeeController extends Controller {
         $human1->wolk();
         $animal1->wolk();
     }
+	
+	public function actionRegister() {
+		
+		return $this->render('register');
+	}
+	
+	public function actionUpdate() {
+		
+		return $this->render('update');
+	}
     
     
     

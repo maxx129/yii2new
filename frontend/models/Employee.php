@@ -11,10 +11,14 @@ use yii\base\Model;
  */
 class Employee extends Model {
     
+    const SCENARIO_EMPLOYEE_REGISTER = 'employee_register';
+    const SCENARIO_EMPLOYEE_UPDATE = 'employee_update';
+    
     public $firstName;
     public $lastName;
     public $middleName;
     public $salary;
+    public $email;
     
             
 }
