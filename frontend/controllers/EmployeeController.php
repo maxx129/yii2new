@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use Yii;
 use yii\web\Controller;
 use frontend\models\Employee;
 use frontend\models\example\Animal;
@@ -35,12 +36,22 @@ class EmployeeController extends Controller {
 	
 	public function actionRegister() {
 		
-		return $this->render('register');
+            $model = new Employee;
+            $model->scenario = Employee::SCENARIO_EMPLOYEE_REGISTER;
+            
+            $formDate = Yii::$app->request->post();
+            
+            if(Yii::$app->request->isPost) {
+                print_r($formDate);
+                print_r($model);die;
+            }
+            
+            return $this->render('register');
 	}
 	
 	public function actionUpdate() {
 		
-		return $this->render('update');
+            return $this->render('update');
 	}
     
     
