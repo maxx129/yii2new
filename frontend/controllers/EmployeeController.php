@@ -42,8 +42,8 @@ class EmployeeController extends Controller {
             $formDate = Yii::$app->request->post();
             
             if(Yii::$app->request->isPost) {
-                print_r($formDate);
-                print_r($model);die;
+                var_dump($formDate);
+                var_dump($model);die;
             }
             
             return $this->render('register');
