@@ -39,19 +39,39 @@ class EmployeeController extends Controller {
             $model = new Employee;
             $model->scenario = Employee::SCENARIO_EMPLOYEE_REGISTER;
             
-            $formDate = Yii::$app->request->post();
+            //$formDate = Yii::$app->request->post();
             
             if(Yii::$app->request->isPost) {
-                var_dump($formDate);
-                var_dump($model);die;
+                $model->attributes = Yii::$app->request->post();
+                //var_dump($model);die;
+                if($model->validate() && $model->save()) {
+                    Yii::$app->session->setFlash('success', 'Registered!');
+                }
             }
             
-            return $this->render('register');
+            return $this->render('register', [
+                'model' => $model,
+            ]);
 	}
 	
 	public function actionUpdate() {
 		
-            return $this->render('update');
+            $model = new Employee;
+            $model->scenario = Employee::SCENARIO_EMPLOYEE_UPDATE;
+            
+            //$formDate = Yii::$app->request->post();
+            
+            if(Yii::$app->request->isPost) {
+                $model->attributes = Yii::$app->request->post();
+                //var_dump($model);die;
+                if($model->validate() && $model->save()) {
+                    Yii::$app->session->setFlash('success', 'Updated!');
+                }
+            }
+            
+            return $this->render('update', [
+                'model' => $model,
+            ]);
 	}
     
     
