@@ -1,3 +1,10 @@
+<?php
+
+if($model->hasErrors()) {
+    var_dump($model->getErrors());
+} ?>
+
+
 <h1>Welcome to our Company!!!</h1>
 
 <form method="post">
