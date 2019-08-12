@@ -15,6 +15,10 @@ class TestController extends Controller{
     
     public function actionIndex() {
         
+        Yii::setAlias('@123', '/app/frontend');
+        $result = mkdir(Yii::getAlias('@123'.'/123'));
+        var_dump($result);die;
+       
         $max = Yii::$app->params['limitMaxNews'];
                 
         $list = Test::getNewsList($max);
