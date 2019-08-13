@@ -66,19 +66,19 @@ return [
         ],
         
         
-    'assetManager' => [
-        'bundles' => [
-            'yii\web\JqueryAsset' => [
-                'js'=>[]
-            ],
-            'yii\web\YiiAsset' => [
-                'js'=>[]
-            ],
-            'yii\bootstrap\BootstrapPluginAsset' => [
-                'js'=>[]
-            ],
-        ],
-    ],
+//    'assetManager' => [
+//        'bundles' => [
+//            'yii\web\JqueryAsset' => [
+//                'js'=>[]
+//            ],
+//            'yii\web\YiiAsset' => [
+//                'js'=>[]
+//            ],
+//            'yii\bootstrap\BootstrapPluginAsset' => [
+//                'js'=>[]
+//            ],
+//        ],
+//    ],
         
         
         
