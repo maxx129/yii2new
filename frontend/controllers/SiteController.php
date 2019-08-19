@@ -14,6 +14,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Test;
 
 /**
  * Site controller
@@ -74,7 +75,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $max = Yii::$app->params['limitMaxNews'];
+                
+        $list = Test::getNewsList($max);
+                       
+        return $this->render('index', [
+            'listing' => $list,
+        ]);
     }
 
     /**
@@ -142,7 +149,13 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $max = Yii::$app->params['limitMaxNews'];
+                
+        $list = Test::getNewsList($max);
+                       
+        return $this->render('about', [
+            'listing' => $list,
+        ]);
     }
 
     /**
