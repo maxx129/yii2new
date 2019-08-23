@@ -84,4 +84,7 @@ return [
         
     ],
     'params' => $params,
+    'aliases' => [
+        '@images' => '/files/photos',
+    ]
 ];
