@@ -17,6 +17,10 @@ echo Html::checkboxList('city_id', [], $array);
 
 echo Html::img('@images/watch.jpg');
 
+$string = '<script>alert("I have got your money");</script>';
+echo Html::encode($string);
+
+
 
 
 
