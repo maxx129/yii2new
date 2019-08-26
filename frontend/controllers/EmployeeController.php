@@ -41,8 +41,8 @@ class EmployeeController extends Controller {
             
             //$formDate = Yii::$app->request->post();
             
-            if(Yii::$app->request->isPost) {
-                $model->attributes = Yii::$app->request->post();
+            if($model->load(Yii::$app->request->post())) {
+                               
                 //var_dump($model);die;
                 if($model->validate() && $model->save()) {
                     Yii::$app->session->setFlash('success', 'Registered!');

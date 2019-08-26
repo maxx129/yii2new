@@ -1,30 +1,31 @@
 <?php
 
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
+
 if($model->hasErrors()) {
     var_dump($model->getErrors());
 } ?>
 
-
 <h1>Welcome to our Company!!!</h1>
 
-<form method="post">
-    
-    <p>First Name</p>
-    <input name="firstName" type="text">
-    <br><br>
-    
-    <p>Last Name</p>
-    <input name="lastName" type="text">
-    <br><br>
-    
-    <p>Middle Name</p>
-    <input name="middleName" type="text">
-    <br><br>
-    
-    <p>Email</p>
-    <input name="email" type="text">
-    <br><br>
-    
-    <input type="submit">
-   
-</form>
+<?php $form = ActiveForm::begin(); ?>
+
+    <?= $form->field($model, 'firstName'); ?>
+    <?= $form->field($model, 'lastName'); ?>
+    <?= $form->field($model, 'middleName'); ?>
+    <?= $form->field($model, 'email'); ?>
+    <?= $form->field($model, 'birthDate'); ?>
+    <?= $form->field($model, 'hiringDate'); ?>
+    <?= $form->field($model, 'position'); ?>
+    <?= $form->field($model, 'idCode'); ?>
+    <?= $form->field($model, 'city')->dropDownList($model->getCitiesList()); ?>
+
+    <?= Html::submitButton('send', ['class' => 'btn btn-primary']); ?>
+
+
+<?php ActiveForm::end(); ?>
+
+
+
+
