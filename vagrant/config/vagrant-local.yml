@@ -16,7 +16,7 @@ machine_name: yii2new
 ip: 192.168.83.137
 
 # Virtual machine CPU cores number
-cpus: 1
+cpus: 2
 
 # Virtual machine RAM
-memory: 2048
+memory: 4096
