@@ -45,4 +45,16 @@ class Book extends ActiveRecord {
     }
     
     
+    public function getBookToAuthorRelations()
+    {
+        return $this->hasMany(BookToAuthor::className(), ['book_id' => 'id']);
+    }
+    
+    
+    public function getAuthors()
+    {
+        return $this->hasMany(Author::className(), ['id' => 'author_id'])->via('bookToAuthorRelations')->all();
+    }
+    
+    
 }
