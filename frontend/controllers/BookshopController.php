@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 use frontend\models\Book;
+use frontend\models\Publisher;
 
 class BookshopController extends Controller
 {
@@ -22,6 +23,7 @@ class BookshopController extends Controller
     public function actionCreate() {
         
         $book = new Book;
+        $publishers = Publisher::getList();
         
         if($book->load(Yii::$app->request->post()) && $book->save()) {
             Yii::$app->session->setFlash('success', 'Saved!');
@@ -29,7 +31,8 @@ class BookshopController extends Controller
         }
          
         return $this->render('create', [
-            'book' => $book,
+            'book' => $book, 
+            'publishers' => $publishers,
         ]);
     }
 
