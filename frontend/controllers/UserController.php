@@ -20,12 +20,21 @@ class UserController extends \yii\web\Controller
             'model' => $model,
         ]);
     }
+    
+    public function actionLogout() 
+    {
+        
+        Yii::$app->user->logout();
+        //echo 'stop';die;
+        return $this->redirect(['site/index']);
+    }
 
     public function actionSignup()
     {
         $model = new SignupForm();
         
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $user = $model->save()) {
+            Yii::$app->user->login($user);
             Yii::$app->session->setFlash('success', 'User registered!');
             return $this->redirect(['site/index']);
         }
