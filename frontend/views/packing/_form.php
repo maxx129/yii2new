@@ -12,9 +12,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'number')->textInput(['maxlength' => true]) ?>
+    <?php (stripos($model->only_brand, 'nly') && $model->klient2 == '#Н/Д') ? $colorOnly = 'red' : $colorOnly = 'white'; ?>
+    <?= $form->field($model, 'number')->textInput(['maxlength' => true, 'style' => "background-color:$colorOnly"]) ?>
     
-    <?= $form->field($model, 'klient1')->textInput(['maxlength' => true]) ?>
+    <?php $model->klient1 == 'Отказ' ? $colorCancel = 'yellow' : $colorCancel = 'white'; ?>
+    <?= $form->field($model, 'klient1')->textInput(['maxlength' => true, 'style' => "background-color:$colorCancel"]) ?>
     
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
@@ -25,6 +27,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'qty_finish')->textInput()->textInput(['autofocus' => true]) ?>
             
     <?= $form->field($model, 'weight')->textInput() ?>
+    
+    <?= $form->field($model, 'only_brand')->textInput() ?>
    
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

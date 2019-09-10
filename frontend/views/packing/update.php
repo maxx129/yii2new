@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Packing */
 
-$this->title = 'Update Packing: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Packings', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+//$this->title = 'Update Packing: ' . $model->id;
+//$this->params['breadcrumbs'][] = ['label' => 'Packings', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+//$this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="packing-update">
 
