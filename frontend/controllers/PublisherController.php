@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use frontend\controllers\behaviors\AccessBehavior;
 
 /**
  * PublisherController implements the CRUD actions for Publisher model.
@@ -26,6 +27,7 @@ class PublisherController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            AccessBehavior::className(),
         ];
     }
 
@@ -35,6 +37,8 @@ class PublisherController extends Controller
      */
     public function actionIndex()
     {
+        $this->checkAccess();
+        
         $dataProvider = new ActiveDataProvider([
             'query' => Publisher::find(),
             'pagination' => [

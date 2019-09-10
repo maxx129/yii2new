@@ -13,30 +13,28 @@ use common\components\UserNotificationInterface;
 class EmailService extends Component 
 {
     /**
-     * 
-     * @param UserNotificationInterface $user
-     * @param string $subject
+     * @param UserNotificationInterface $event
      * return boolean
      */
-    public function notifyUser(UserNotificationInterface $user, $subject) 
+    public function notifyUser(UserNotificationInterface $event) 
     {
         Yii::$app->mailer->compose()
                 ->setFrom('max.anga.inc@gmail.com')
-                ->setTo($user->getEmail())
-                ->setSubject($subject)
+                ->setTo($event->getEmail())
+                ->setSubject($event->getSubject())
                 ->send();
     }
     
     /**
-     * 
-     * @param string $subject
+     * @param UserNotificationInterface $event
+     * return boolean
      */
-    public function notifyAdmin($subject) 
+    public function notifyAdmin(UserNotificationInterface $event) 
     {
         Yii::$app->mailer->compose()
                 ->setFrom('max.anga.inc@gmail.com')
                 ->setTo('maxx129@yandex.ru')
-                ->setSubject($subject)
+                ->setSubject($event->getSubject())
                 ->send();
     }
 }

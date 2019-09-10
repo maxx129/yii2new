@@ -4,9 +4,17 @@ namespace frontend\controllers;
 
 use Yii;
 use frontend\models\Author;
+use frontend\controllers\behaviors\AccessBehavior;
 
 class AuthorController extends \yii\web\Controller
 {
+    public function behaviors()
+    {
+        return [
+            AccessBehavior::className(),
+        ];
+    }
+
     public function actionIndex()
     {
         $authorList = Author::find()->all();
@@ -53,5 +61,5 @@ class AuthorController extends \yii\web\Controller
         Yii::$app->session->setFlash('success', 'Author has been deleted');
         return $this->redirect(['author/index']);
     }
-
+    
 }

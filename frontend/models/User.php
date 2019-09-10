@@ -5,7 +5,6 @@ namespace frontend\models;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-use common\components\UserNotificationInterface;
 
 /**
  * This is the model class for table "user".
@@ -21,10 +20,18 @@ use common\components\UserNotificationInterface;
  * @property int $updated_at
  * @property string $verification_token
  */
-class User extends ActiveRecord implements IdentityInterface, UserNotificationInterface
+class User extends ActiveRecord implements IdentityInterface
 {
     const USER_REGISTERED = 'user_registered';
     
+    public function init()
+    {
+        $this->on(self::USER_REGISTERED, [Yii::$app->emailService, 'notifyAdmin']);
+        $this->on(self::USER_REGISTERED, [Yii::$app->emailService, 'notifyUser']);
+        parent::init();
+    }
+
+
     /**
      * {@inheritdoc}
      */
