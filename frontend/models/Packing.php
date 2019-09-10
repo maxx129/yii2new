@@ -32,6 +32,7 @@ class Packing extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['number', 'number_ordered', 'qty_finish'], 'required'],
             [['qty_start', 'qty_finish'], 'integer'],
             [['weight'], 'number'],
             [['number', 'description', 'brand', 'klient1'], 'string', 'max' => 255],
@@ -45,13 +46,16 @@ class Packing extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'number' => 'Number',
-            'description' => 'Description',
-            'qty_start' => 'Qty1',
-            'qty_finish' => 'Qty2',
-            'brand' => 'Brand',
-            'weight' => 'Weight',
-            'klient1' => 'Klient',
+            'number' => 'Номер',
+            'description' => 'Наименование',
+            'qty_start' => 'Заказано',
+            'qty_finish' => 'Получено',
+            'brand' => 'Бренд',
+            'weight' => 'Вес',
+            'klient1' => 'Клиент',
+            'my_id' => 'my_id',
+            'price' => 'Цена',
+            'number_ordered' => 'Номер Исходный',
         ];
     }
 }
