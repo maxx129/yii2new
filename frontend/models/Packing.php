@@ -35,7 +35,7 @@ class Packing extends \yii\db\ActiveRecord
             [['number', 'number_ordered', 'qty_finish'], 'required'],
             [['qty_start', 'qty_finish'], 'integer'],
             [['weight'], 'number'],
-            [['number', 'description', 'brand', 'klient1'], 'string', 'max' => 255],
+            [['number', 'description', 'brand', 'only_brand', 'klient1'], 'string', 'max' => 255],
         ];
     }
 
@@ -56,6 +56,7 @@ class Packing extends \yii\db\ActiveRecord
             'my_id' => 'my_id',
             'price' => 'Цена',
             'number_ordered' => 'Номер Исходный',
+            'only_brand' => 'Only Brand',
         ];
     }
 }
