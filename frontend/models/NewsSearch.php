@@ -3,7 +3,7 @@
 namespace frontend\models;
 
 use Yii;
-//use yii\helpers\ArrayHelper;
+use yii\helpers\ArrayHelper;
 
 /**
  * Description of NewsSearch
@@ -20,18 +20,21 @@ class NewsSearch {
     
     public function fulltextSearch($keyword)
     {
-        $sql = "SELECT * FROM news WHERE MATCH (content) AGAINST ('$keyword') LIMIT 10";
+        $sql = "SELECT * FROM news WHERE MATCH (content) AGAINST ('$keyword') LIMIT 20";
         return Yii::$app->db->createCommand($sql)->queryAll();
     }
     
     public function advancedSearch($keyword)
     {
        
-        $sql = "SELECT * FROM idx_news_content WHERE MATCH('$keyword')";
+        $sql = "SELECT * FROM idx_news_content WHERE MATCH ('$keyword') OPTION ranker = WORDCOUNT";
         $data = Yii::$app->sphinx->createCommand($sql)->queryAll();
         
-        //$ids = ArrayHelper::map($data, 'id', 'id');
+        $ids = ArrayHelper::map($data, 'id', 'id');
         
-        var_dump($data);die;
+        $data = News::find()->where(['id' => $ids])->asArray()->all();
+        return $data;
+        
+        //var_dump($ids);die;
     }
 }
