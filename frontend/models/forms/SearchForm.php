@@ -33,6 +33,15 @@ class SearchForm extends Model
         }
     }
     
+    public function searchAdvanced()
+    {
+  
+        if ($this->validate()) {
+            $model = new NewsSearch;
+            return $model->advancedSearch($this->keyword);
+        }
+    }
+    
     
     
  

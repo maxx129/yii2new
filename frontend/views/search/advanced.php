@@ -8,7 +8,7 @@ use frontend\helpers\HighlightHelper;
 
 ?>
 
-<h1>search v.2</h1>
+<h1>search v.3</h1>
 
 <div class="row">
     <div class="col-md-12">
@@ -35,3 +35,4 @@ use frontend\helpers\HighlightHelper;
         <?php endif; ?>
     </div>
 </div>
+

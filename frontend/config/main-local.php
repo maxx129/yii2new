@@ -6,6 +6,13 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'vjF8owOArnR07dUIzWfznREqs9BZO9x2',
         ],
+        
+        'sphinx' => [
+        'class' => 'yii\sphinx\Connection',
+        'dsn' => 'mysql:host=localhost;port=9306;dbname=yii2advanced',
+        'username' => 'root',
+        'password' => '',
+    ],
     ],
 ];
 
