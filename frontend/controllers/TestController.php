@@ -20,7 +20,7 @@ class TestController extends Controller{
     {
         $faker = Factory::create();
 		
-		for ($j = 0; $j <1000; $j++) {
+		for ($j = 0; $j <100; $j++) {
 			$news = [];
 			for ($i = 0; $i < 100; $i++) {
 				$news[] = [$faker->text(35), $faker->text(rand(1000, 2000)), rand(0, 1)];
