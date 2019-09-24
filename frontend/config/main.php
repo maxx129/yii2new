@@ -66,6 +66,28 @@ return [
                     ],
         ],
         
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+//                'google' => [
+//                    'class' => 'yii\authclient\clients\Google',
+//                    'clientId' => 'google_client_id',
+//                    'clientSecret' => 'google_client_secret',
+//                ],
+                'facebook' => [
+                    'class' => 'yii\authclient\clients\Facebook',
+                    'clientId' => '1267517770085595',
+                    'clientSecret' => '14b141ed8776904aa37905fd8cf8ee32',
+                ],
+                'VKontakte' => [
+                    'class' => 'yii\authclient\clients\VKontakte',
+                    'clientId' => '7146067',
+                    'clientSecret' => 'a0163473a0163473a0163473bda07b3e20aa016a0163473fd9f83f48528fed8f810114a',
+                ],
+                // etc.
+            ],
+        ],
+        
         
         
         
